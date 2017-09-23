@@ -12,6 +12,30 @@
     <artifactId>p46246176-app</artifactId>
     <packaging>ear</packaging>
 
+    <build>
+        <finalName>p46246176-app.ear</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <version>1.4</version>
+                    <modules>
+                        <ejbModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>p46246176-ejb</artifactId>
+                            <bundleFileName>p46246176-ejb.jar</bundleFileName>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>p46246176-web</artifactId>
+                            <contextRoot>/p46246176</contextRoot>
+                            <bundleFileName>p46246176-web.war</bundleFileName>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>

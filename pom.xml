@@ -16,8 +16,8 @@
     <packaging>pom</packaging>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
     </properties>
 
 
@@ -36,10 +36,10 @@
             </dependency>
             <dependency>
                 <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
-                <version>3.0</version>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.0.1</version>
             </dependency>
-
+            
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>p46246176-ejb</artifactId>
@@ -55,5 +55,13 @@
 
         </dependencies>
     </dependencyManagement>
-    
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
 </project>

@@ -1,0 +1,43 @@
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_0.xsd"
+         version="3.0">
+
+<enterprise-beans>
+        <session>
+            <ejb-name>EjbOne</ejb-name>
+            <local-home>com.stackoverflow.p46246176.business.EjbOneLocalHome</local-home>
+            <local>com.stackoverflow.p46246176.business.EjbOneLocal</local>
+            <ejb-class>com.stackoverflow.p46246176.business.EjbOneBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+            <ejb-local-ref>
+                <!--
+                    Allows the lookup of a EjbTwoLocalHome at java:comp/env/ejb/ejbTwo from anywhere in this session
+                    bean except it's ejbCreate method.
+                 -->
+                <ejb-ref-name>ejb/ejbTwo</ejb-ref-name>
+                <ejb-ref-type>Session</ejb-ref-type>
+                <local-home>com.stackoverflow.p46246176.business.EjbTwoLocalHome</local-home>
+                <local>com.stackoverflow.p46246176.business.EjbTwoLocal</local>
+                <ejb-link>EjbTwo</ejb-link>
+            </ejb-local-ref>
+        </session>
+
+        <session>
+            <ejb-name>EjbTwo</ejb-name>
+            <local-home>com.stackoverflow.p46246176.business.EjbTwoLocalHome</local-home>
+            <local>com.stackoverflow.p46246176.business.EjbTwoLocal</local>
+            <ejb-class>com.stackoverflow.p46246176.business.EjbTwoBean</ejb-class>
+            <session-type>Stateless</session-type>
+            <transaction-type>Container</transaction-type>
+
+            <!--
+                This bean has no ejb-local-ref elements. It can still lookup other EJBs but it must use
+                it's non-portable global EJB name.
+              -->
+        </session>
+        
+    </enterprise-beans>
+</ejb-jar>
+

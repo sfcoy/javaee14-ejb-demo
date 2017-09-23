@@ -1,0 +1,27 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+<servlet>
+        <servlet-name>EJBCaller</servlet-name>
+        <servlet-class>com.stackoverflow.p46246176.CallLocalEJBServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>EJBCaller</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+
+    <ejb-local-ref>
+        <!--
+            allows the lookup of a EjbOneLocalHome at java:comp/env/ejb/ejbOne from anywhere in this web application.
+         -->
+        <ejb-ref-name>ejb/ejbOne</ejb-ref-name>
+        <ejb-ref-type>Session</ejb-ref-type>
+        <local-home>com.stackoverflow.p46246176.business.EjbOneLocalHome</local-home>
+        <local>com.stackoverflow.p46246176.business.EjbOneLocal</local>
+        <ejb-link>EjbOne</ejb-link>
+    </ejb-local-ref>
+    
+</web-app>

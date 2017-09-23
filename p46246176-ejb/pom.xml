@@ -12,4 +12,11 @@
     <artifactId>p46246176-ejb</artifactId>
     <packaging>ejb</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.ejb</groupId>
+            <artifactId>ejb-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
